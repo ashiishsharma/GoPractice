@@ -6,7 +6,7 @@ type IntegerLinkedList interface {
 
 type ICustomLinkedList[T IntegerLinkedList] interface {
 	add(T)
-	remove(int)
+	remove()
 	getSize() int
 }
 type CustomLinkedList[T IntegerLinkedList] struct {
@@ -30,6 +30,10 @@ func (customLinkedList *CustomLinkedList[T]) add(t T) {
 		iterationNode.next = node
 	}
 	customLinkedList.size++
+}
+
+func (customLinkedList *CustomLinkedList[T]) remove() {
+	customLinkedList.size--
 }
 
 func (customLinkedList *CustomLinkedList[T]) getSize() int {
